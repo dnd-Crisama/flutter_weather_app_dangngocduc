@@ -25,7 +25,6 @@ class WeatherIcons {
     }
   }
 
-  // Mau gradient nen theo dieu kien thoi tiet
   static List<Color> getGradient(String condition) {
     switch (condition.toLowerCase()) {
       case 'clear':
@@ -44,7 +43,6 @@ class WeatherIcons {
     }
   }
 
-  // Chuyen huong gio sang chu
   static String windDirection(int deg) {
     if (deg >= 337 || deg < 23) return 'Bắc';
     if (deg < 68) return 'Đông Bắc';
