@@ -75,27 +75,31 @@ flutter test test/weather_service_test.dart
 Screenshot dưới đây hiển thị các tính năng chính của ứng dụng:
 
 ### Thời tiết quang đãng
+<img width="597" height="888" alt="image" src="https://github.com/user-attachments/assets/f342b48e-1dc6-4010-aa28-12c26ed2fad6" />
+
 
 ### Thời tiết có mưa
-Màn hình chính khi có mưa, hiển thị thông tin lượng mưa và độ ẩm.
+<img width="597" height="881" alt="image" src="https://github.com/user-attachments/assets/3fd361f2-5576-41f3-bed8-23a40f7d9a01" />
 
 ### Thời tiết có mây
-Màn hình chính khi có mây, nhận dạng tình trạng thời tiết đám mây.
+<img width="597" height="885" alt="image" src="https://github.com/user-attachments/assets/a03cd73a-7614-45f7-b25b-b1cbb3031092" />
 
 ### Chế độ tối
 Ứng dụng hỗ trợ chế độ tối tự động theo cài đặt hệ thống.
 
 ### Màn hình tìm kiếm
-Người dùng có thể tìm kiếm thành phố bằng tên để xem thời tiết địa phương.
+<img width="601" height="898" alt="image" src="https://github.com/user-attachments/assets/ee3d8c7b-cbb9-4b46-8a90-edab8af6d929" />
 
 ### Màn hình dự báo
 Hiển thị dự báo chi tiết cho 5 ngày tới với thông tin nhiệt độ, độ ẩm và khả năng mưa.
+<img width="603" height="890" alt="image" src="https://github.com/user-attachments/assets/8623bbcc-ffe5-44bb-b355-33af48cfbfa1" />
 
 ### Trạng thái lỗi
-Khi có lỗi (không có kết nối, thành phố không tìm thấy), ứng dụng hiển thị thông báo lỗi rõ ràng.
+s<img width="599" height="893" alt="image" src="https://github.com/user-attachments/assets/e7fcae98-4425-414b-8e4e-e46e59a833aa" />
+
 
 ### Trạng thái loading
-Khi đang tải dữ liệu, ứng dụng hiển thị shimmer effect để cho biết là đang xử lý.
+<img width="597" height="887" alt="image" src="https://github.com/user-attachments/assets/1f437c89-dbc2-4ce8-9303-a9e4bf4387f9" />
 
 ## Hướng dẫn sử dụng
 
