@@ -6,7 +6,7 @@ class WeatherIcons {
       case 'clear':
         return Icons.wb_sunny;
       case 'clouds':
-        return Icons.cloud;
+        return Icons.cloud_queue;
       case 'rain':
         return Icons.umbrella;
       case 'drizzle':
@@ -28,7 +28,10 @@ class WeatherIcons {
   static List<Color> getGradient(String condition) {
     switch (condition.toLowerCase()) {
       case 'clear':
-        return [const Color(0xFF1565C0), const Color(0xFF42A5F5)];
+        return [
+          const Color.fromARGB(255, 228, 173, 102),
+          const Color(0xFF42A5F5),
+        ];
       case 'clouds':
         return [const Color(0xFF546E7A), const Color(0xFF90A4AE)];
       case 'rain':

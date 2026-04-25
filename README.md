@@ -1,4 +1,4 @@
-# Ứng dụng Thời tiết Flutter
+# Flutter Weather app 
 
 Ứng dụng dự báo thời tiết di động được xây dựng bằng Flutter, cung cấp thông tin thời tiết chi tiết cho người dùng với giao diện đẹp mắt và hiện đại.
 
@@ -9,9 +9,7 @@
 - Dự báo từng giờ trong 24 giờ tới
 - Chuyển đổi giữa đơn vị nhiệt độ (Celsius/Fahrenheit)
 - Lưu trữ lịch sử tìm kiếm thành phố
-- Hỗ trợ chế độ tối/sáng theo hệ thống
 - Kiểm tra kết nối mạng và lưu bộ đệm dữ liệu
-- Giao diện đáp ứng tương thích với các thiết bị có kích thước khác nhau
 
 ## Công nghệ sử dụng
 
@@ -63,16 +61,7 @@ flutter pub get
 ### 4. Chạy ứng dụng
 
 ```bash
-# Trên thiết bị Android hoặc iOS
 flutter run
-
-# Trên nền tảng cụ thể
-flutter run -d android
-flutter run -d ios
-flutter run -d windows
-flutter run -d macos
-flutter run -d linux
-flutter run -d chrome
 ```
 
 ### 5. Chạy tests
@@ -86,7 +75,6 @@ flutter test test/weather_service_test.dart
 Screenshot dưới đây hiển thị các tính năng chính của ứng dụng:
 
 ### Thời tiết quang đãng
-Màn hình chính hiển thị thời tiết mặt trời, nhiệt độ hiện tại và dự báo theo giờ.
 
 ### Thời tiết có mưa
 Màn hình chính khi có mưa, hiển thị thông tin lượng mưa và độ ẩm.
@@ -115,28 +103,7 @@ Khi đang tải dữ liệu, ứng dụng hiển thị shimmer effect để cho 
 2. Cho phép quyền truy cập GPS để ứng dụng lấy vị trị hiện tại
 3. Màn hình chính sẽ hiển thị thời tiết tại vị trí của bạn
 4. Nhấn vào nút tìm kiếm để tìm kiếm thành phố khác
-5. Kéo xuống để tải lại dữ liệu thời tiết
-6. Vào phần cài đặt để thay đổi đơn vị nhiệt độ
-
-## Các hạn chế đã biết
-
-- Ứng dụng yêu cầu kết nối Internet để lấy dữ liệu thời tiết mới
-- API miễn phí của OpenWeatherMap có giới hạn 1000 lần gọi API mỗi ngày
-- Dự báo theo giờ chỉ hiển thị 24 giờ tới
-- Ứng dụng lưu bộ đệm dữ liệu nhưng sẽ cũ nếu không có kết nối mạng
-- Vị trí GPS có thể mất một chút thời gian để lấy tọa độ chính xác
-- Trên một số thiết bị, quyền tiếp cận vị trị có thể bị từ chối
-
-## Những cải tiến trong tương lai
-
-- Thêm tính năng thông báo cảnh báo thời tiết nguy hiểm
-- Tích hợp bản đồ hiển thị thông tin thời tiết trên khu vực địa lý
-- Hỗ trợ độ ẩm tuyệt đối và chỉ số UV
-- Thêm tính năng chia sẻ thông tin thời tiết qua mạng xã hội
-- Cải thiện hiệu suất bộ đệm dữ liệu
-- Thêm hỗ trợ cho nhiều ngôn ngữ
-- Tích hợp với dịch vụ lịch để gợi ý hoạt động dựa trên thời tiết
-- Thêm widget để xem thời tiết nhanh chóng từ màn hình chính Android
+5. Vào phần cài đặt để thay đổi đơn vị nhiệt độ
 
 ## Kiểm thử
 
@@ -153,18 +120,6 @@ Khi đang tải dữ liệu, ứng dụng hiển thị shimmer effect để cho 
 ```bash
 flutter test test/weather_service_test.dart
 ```
-
-## Đóng góp
-
-Nếu bạn muốn đóng góp vào dự án này, vui lòng tạo một pull request hoặc report issue.
-
-## Giấy phép
-
-Dự án này được cấp phép dưới MIT License. Xem file LICENSE để chi tiết.
-
-## Liên hệ
-
-Nếu có câu hỏi hoặc gợi ý, vui lòng mở một issue trên GitHub hoặc liên hệ trực tiếp.
 
 ## Acknowledgments
 
