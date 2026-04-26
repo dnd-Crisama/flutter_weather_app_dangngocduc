@@ -85,7 +85,7 @@ Screenshot dưới đây hiển thị các tính năng chính của ứng dụng
 <img width="597" height="885" alt="image" src="https://github.com/user-attachments/assets/a03cd73a-7614-45f7-b25b-b1cbb3031092" />
 
 ### Chế độ tối
-Ứng dụng hỗ trợ chế độ tối tự động theo cài đặt hệ thống.
+<img width="592" height="891" alt="image" src="https://github.com/user-attachments/assets/c5fbbba8-476a-4706-bfe0-83b001abe2ee" />
 
 ### Màn hình tìm kiếm
 <img width="601" height="898" alt="image" src="https://github.com/user-attachments/assets/ee3d8c7b-cbb9-4b46-8a90-edab8af6d929" />
@@ -94,12 +94,16 @@ Screenshot dưới đây hiển thị các tính năng chính của ứng dụng
 Hiển thị dự báo chi tiết cho 5 ngày tới với thông tin nhiệt độ, độ ẩm và khả năng mưa.
 <img width="603" height="890" alt="image" src="https://github.com/user-attachments/assets/8623bbcc-ffe5-44bb-b355-33af48cfbfa1" />
 
-### Trạng thái lỗi
-s<img width="599" height="893" alt="image" src="https://github.com/user-attachments/assets/e7fcae98-4425-414b-8e4e-e46e59a833aa" />
+### Màn hình setting
+<img width="592" height="883" alt="image" src="https://github.com/user-attachments/assets/aceaa0e9-326f-4132-a1ef-667ca41c01ec" />
 
+### Trạng thái lỗi
+<img width="599" height="893" alt="image" src="https://github.com/user-attachments/assets/e7fcae98-4425-414b-8e4e-e46e59a833aa" />
+<img width="599" height="892" alt="image" src="https://github.com/user-attachments/assets/1720c7b0-347b-4ea5-b32a-c06a11fd931b" />
 
 ### Trạng thái loading
 <img width="597" height="887" alt="image" src="https://github.com/user-attachments/assets/1f437c89-dbc2-4ce8-9303-a9e4bf4387f9" />
+<img width="598" height="897" alt="image" src="https://github.com/user-attachments/assets/078b05db-4943-4653-b294-1ca5d68be5d0" />
 
 ## Hướng dẫn sử dụng
 
