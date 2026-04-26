@@ -66,6 +66,29 @@ class SettingsScreen extends StatelessWidget {
 
               const SizedBox(height: 20),
 
+              // === Che do hien thi ===
+              _sectionHeader('CHỈ ĐỦ HIỂN THỊ'),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: SwitchListTile(
+                  secondary: Icon(
+                    provider.isDarkMode
+                        ? Icons.nights_stay
+                        : Icons.brightness_5,
+                  ),
+                  title: const Text('Chế độ tối'),
+                  subtitle: Text(
+                    provider.isDarkMode ? 'Chế độ tối bật' : 'Chế độ sáng',
+                  ),
+                  value: provider.isDarkMode,
+                  onChanged: (_) => provider.toggleDarkMode(),
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
               // === Thanh pho yeu thich ===
               _sectionHeader('THÀNH PHỐ YÊU THÍCH (tối đa 5)'),
               Card(

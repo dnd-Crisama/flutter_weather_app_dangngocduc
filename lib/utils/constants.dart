@@ -7,6 +7,7 @@ class AppConstants {
   static const String is24HourKey = 'is_24_hour';
   static const String searchHistoryKey = 'search_history';
   static const String favoritesKey = 'favorite_cities';
+  static const String isDarkModeKey = 'is_dark_mode';
 
   // Cache hop le 30 phut
   static const int cacheValidMinutes = 30;

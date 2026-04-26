@@ -26,6 +26,7 @@ class WeatherProvider extends ChangeNotifier {
   bool isCelsius = true;
   String windUnit = AppConstants.windMs;
   bool is24Hour = true;
+  bool isDarkMode = false;
 
   // Them tinh nang
   bool isShowingCache = false;
@@ -50,6 +51,7 @@ class WeatherProvider extends ChangeNotifier {
     isCelsius = await _storageService.loadIsCelsius();
     windUnit = await _storageService.loadWindUnit();
     is24Hour = await _storageService.loadIs24Hour();
+    isDarkMode = await _storageService.loadDarkMode();
     searchHistory = await _storageService.loadSearchHistory();
     favorites = await _storageService.loadFavorites();
     notifyListeners();
@@ -260,4 +262,11 @@ class WeatherProvider extends ChangeNotifier {
   }
 
   bool isFavorite(String city) => favorites.contains(city);
+
+  // --- Dark Mode ---
+  void toggleDarkMode() {
+    isDarkMode = !isDarkMode;
+    _storageService.saveDarkMode(isDarkMode);
+    notifyListeners();
+  }
 }

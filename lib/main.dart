@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'providers/weather_provider.dart';
+import 'providers/theme_provider.dart';
 import 'providers/location_provider.dart';
 import 'services/weather_service.dart';
 import 'services/location_service.dart';
@@ -29,6 +30,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        // ThemeProvider: quan ly truong sang/toi
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
         // LocationProvider: quan ly quyen va vi tri GPS
         ChangeNotifierProvider(
           create: (_) => LocationProvider(locationService: LocationService()),
@@ -43,14 +46,19 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ],
-      child: MaterialApp(
-        title: 'Weather App',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-          useMaterial3: true,
-        ),
-        home: const HomeScreen(),
+      child: Consumer2<ThemeProvider, WeatherProvider>(
+        builder: (context, themeProvider, weatherProvider, child) {
+          return MaterialApp(
+            title: 'Weather App',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeProvider.getLightTheme(),
+            darkTheme: ThemeProvider.getDarkTheme(),
+            themeMode: weatherProvider.isDarkMode
+                ? ThemeMode.dark
+                : ThemeMode.light,
+            home: const HomeScreen(),
+          );
+        },
       ),
     );
   }

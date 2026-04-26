@@ -97,4 +97,15 @@ class StorageService {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getStringList(AppConstants.favoritesKey) ?? [];
   }
+
+  // --- Dark Mode ---
+  Future<void> saveDarkMode(bool value) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(AppConstants.isDarkModeKey, value);
+  }
+
+  Future<bool> loadDarkMode() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(AppConstants.isDarkModeKey) ?? false;
+  }
 }

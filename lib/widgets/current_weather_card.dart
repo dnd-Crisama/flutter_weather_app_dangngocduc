@@ -17,7 +17,15 @@ class CurrentWeatherCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final gradient = WeatherIcons.getGradient(weather.mainCondition);
+    final isNight = WeatherIcons.isNightTime(
+      sunrise: weather.sunrise,
+      sunset: weather.sunset,
+      currentTime: weather.dateTime,
+    );
+    final gradient = WeatherIcons.getGradient(
+      weather.mainCondition,
+      isNight: isNight,
+    );
 
     return Container(
       width: double.infinity,
@@ -100,7 +108,10 @@ class CurrentWeatherCard extends StatelessWidget {
                 ),
                 child: Center(
                   child: Icon(
-                    WeatherIcons.getIcon(weather.mainCondition),
+                    WeatherIcons.getIcon(
+                      weather.mainCondition,
+                      isNight: isNight,
+                    ),
                     size: 70,
                     color: Colors.white,
                   ),

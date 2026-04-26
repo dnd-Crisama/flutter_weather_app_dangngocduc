@@ -20,6 +20,8 @@ class DailyForecastCard extends StatelessWidget {
     final isToday =
         forecast.dateTime.day == now.day &&
         forecast.dateTime.month == now.month;
+    // Forecast times are typically 12:00 (noon), so treat as daytime
+    final isNight = false;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -58,7 +60,7 @@ class DailyForecastCard extends StatelessWidget {
 
           // Icon
           Icon(
-            WeatherIcons.getIcon(forecast.mainCondition),
+            WeatherIcons.getIcon(forecast.mainCondition, isNight: isNight),
             size: 36,
             color: Colors.blue.shade700,
           ),
