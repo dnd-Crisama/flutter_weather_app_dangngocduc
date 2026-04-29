@@ -128,6 +128,7 @@ Hiển thị dự báo chi tiết cho 5 ngày tới với thông tin nhiệt đ�
 ```bash
 flutter test test/weather_service_test.dart
 ```
+<img width="607" height="137" alt="image" src="https://github.com/user-attachments/assets/7e6de499-fc02-4f8a-a2f4-85baad406ac4" />
 
 ## Acknowledgments
 
