@@ -11,6 +11,9 @@
 - Lưu trữ lịch sử tìm kiếm thành phố
 - Kiểm tra kết nối mạng và lưu bộ đệm dữ liệu
 
+## Video demo 
+https://github.com/user-attachments/assets/2ecab300-4208-4d4a-95f4-f58062be88b9
+
 ## Công nghệ sử dụng
 
 - Framework: Flutter 3.41.6
