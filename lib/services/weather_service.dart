@@ -6,21 +6,18 @@ import '../models/forecast_model.dart';
 import '../models/hourly_weather_model.dart';
 
 class WeatherService {
-  // Lay thoi tiet hien tai theo ten thanh pho
   Future<WeatherModel> getWeatherByCity(String city) async {
     final url = Uri.parse(ApiConfig.weatherByCity(city));
     final response = await http.get(url).timeout(const Duration(seconds: 10));
     return _parseWeather(response);
   }
 
-  // Lay thoi tiet hien tai theo toa do GPS
   Future<WeatherModel> getWeatherByCoords(double lat, double lon) async {
     final url = Uri.parse(ApiConfig.weatherByCoords(lat, lon));
     final response = await http.get(url).timeout(const Duration(seconds: 10));
     return _parseWeather(response);
   }
 
-  // Xu ly response thoi tiet hien tai
   WeatherModel _parseWeather(http.Response response) {
     if (response.statusCode == 200) {
       return WeatherModel.fromJson(json.decode(response.body));
@@ -35,14 +32,12 @@ class WeatherService {
     }
   }
 
-  // Lay du bao 5 ngay theo ten thanh pho
   Future<List<ForecastModel>> getForecastByCity(String city) async {
     final url = Uri.parse(ApiConfig.forecastByCity(city));
     final response = await http.get(url).timeout(const Duration(seconds: 10));
     return _parseForecast(response);
   }
 
-  // Lay du bao theo toa do GPS
   Future<List<ForecastModel>> getForecastByCoords(
     double lat,
     double lon,
@@ -52,7 +47,6 @@ class WeatherService {
     return _parseForecast(response);
   }
 
-  // Xu ly response du bao
   List<ForecastModel> _parseForecast(http.Response response) {
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
@@ -63,7 +57,6 @@ class WeatherService {
     }
   }
 
-  // Lay du bao theo gio
   Future<List<HourlyWeatherModel>> getHourlyByCity(String city) async {
     final url = Uri.parse(ApiConfig.forecastByCity(city));
     final response = await http.get(url).timeout(const Duration(seconds: 10));

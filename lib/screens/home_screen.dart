@@ -24,7 +24,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    // Lay thoi tiet khi mo app
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<WeatherProvider>().fetchByLocation();
     });
@@ -35,12 +34,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Consumer<WeatherProvider>(
         builder: (context, provider, child) {
-          // Dang tai
           if (provider.state == WeatherState.loading) {
             return const LoadingShimmer();
           }
 
-          // Loi va chua co cache
           if (provider.state == WeatherState.error) {
             return ErrorWidgetCustom(
               message: provider.errorMessage,
@@ -52,7 +49,6 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           }
 
-          // Chua co du lieu gi
           if (provider.currentWeather == null) {
             return const Center(
               child: Text('Nhấn nut GPS để lấy thời tiết hiện tại'),
@@ -67,18 +63,15 @@ class _HomeScreenState extends State<HomeScreen> {
               physics: const AlwaysScrollableScrollPhysics(),
               child: Column(
                 children: [
-                  // --- Thanh cong cu (tren gradient) ---
                   Stack(
                     children: [
                       CurrentWeatherCard(weather: weather, provider: provider),
-                      // Cac nut phia tren phai
                       SafeArea(
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 4),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              // Nut GPS
                               IconButton(
                                 icon: const Icon(
                                   Icons.my_location,
@@ -89,7 +82,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               Row(
                                 children: [
-                                  // Nut tim kiem
                                   IconButton(
                                     icon: const Icon(
                                       Icons.search,
@@ -102,7 +94,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                     ),
                                   ),
-                                  // Nut yeu thich
                                   IconButton(
                                     icon: Icon(
                                       provider.isFavorite(weather.cityName)
@@ -126,7 +117,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                       );
                                     },
                                   ),
-                                  // Nut settings
                                   IconButton(
                                     icon: const Icon(
                                       Icons.settings,
@@ -148,13 +138,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
 
-                  // --- Noi dung phia duoi ---
                   Padding(
                     padding: const EdgeInsets.fromLTRB(16, 20, 16, 16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // === Chi so thoi tiet ===
                         const Text(
                           'Chi tiết thời tiết',
                           style: TextStyle(
@@ -254,7 +242,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
                         const SizedBox(height: 20),
 
-                        // === Du bao theo gio ===
                         if (provider.hourlyForecast.isNotEmpty) ...[
                           const Text(
                             'Dự báo 24 giờ',
@@ -264,14 +251,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           const SizedBox(height: 10),
-                          HourlyForecastList(
-                            hourlyList: provider.hourlyForecast,
-                            provider: provider,
-                          ),
+                          if (provider.hourlyForecast.isNotEmpty)
+                            HourlyForecastList(
+                              hourlyList: provider.hourlyForecast,
+                              provider: provider,
+                            ),
                           const SizedBox(height: 20),
                         ],
 
-                        // === Du bao 5 ngay (rut gon) ===
                         if (provider.dailyForecast.isNotEmpty) ...[
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

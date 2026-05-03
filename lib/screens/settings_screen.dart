@@ -18,7 +18,6 @@ class SettingsScreen extends StatelessWidget {
           return ListView(
             padding: const EdgeInsets.all(16),
             children: [
-              // === Don vi ===
               _sectionHeader('ĐƠN VỊ'),
               Card(
                 shape: RoundedRectangleBorder(
@@ -26,7 +25,6 @@ class SettingsScreen extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    // Don vi nhiet do
                     SwitchListTile(
                       secondary: const Icon(Icons.thermostat),
                       title: const Text('Đơn vị nhiệt độ'),
@@ -38,7 +36,6 @@ class SettingsScreen extends StatelessWidget {
                     ),
                     const Divider(height: 1),
 
-                    // Don vi toc do gio
                     ListTile(
                       leading: const Icon(Icons.air),
                       title: const Text('Đơn vị tốc độ gió'),
@@ -48,7 +45,6 @@ class SettingsScreen extends StatelessWidget {
                     ),
                     const Divider(height: 1),
 
-                    // Dinh dang gio
                     SwitchListTile(
                       secondary: const Icon(Icons.access_time),
                       title: const Text('Định dạng 24 giờ'),
@@ -66,7 +62,6 @@ class SettingsScreen extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              // === Che do hien thi ===
               _sectionHeader('CHỈ ĐỦ HIỂN THỊ'),
               Card(
                 shape: RoundedRectangleBorder(
@@ -89,7 +84,6 @@ class SettingsScreen extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              // === Thanh pho yeu thich ===
               _sectionHeader('THÀNH PHỐ YÊU THÍCH (tối đa 5)'),
               Card(
                 shape: RoundedRectangleBorder(
@@ -129,7 +123,6 @@ class SettingsScreen extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              // === Ve ung dung ===
               _sectionHeader('VỀ ỨNG DỤNG'),
               Card(
                 shape: RoundedRectangleBorder(
@@ -199,7 +192,6 @@ class SettingsScreen extends StatelessWidget {
     }
   }
 
-  // Dialog chon don vi gio
   void _showWindUnitPicker(BuildContext context, WeatherProvider provider) {
     showDialog(
       context: context,

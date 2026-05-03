@@ -42,7 +42,6 @@ class CurrentWeatherCard extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 28),
           child: Column(
             children: [
-              // --- Thong bao dung cache ---
               if (provider.isShowingCache)
                 Container(
                   margin: const EdgeInsets.only(bottom: 8),
@@ -73,7 +72,6 @@ class CurrentWeatherCard extends StatelessWidget {
                   ),
                 ),
 
-              // --- Ten thanh pho ---
               Text(
                 '${weather.cityName}, ${weather.country}',
                 style: const TextStyle(
@@ -84,14 +82,12 @@ class CurrentWeatherCard extends StatelessWidget {
               ),
               const SizedBox(height: 4),
 
-              // --- Ngay gio ---
               Text(
                 DateFormatter.formatFull(weather.dateTime),
                 style: const TextStyle(color: Colors.white70, fontSize: 14),
               ),
               const SizedBox(height: 12),
 
-              // --- Icon thoi tiet ---
               Container(
                 height: 110,
                 width: 110,
@@ -118,7 +114,6 @@ class CurrentWeatherCard extends StatelessWidget {
                 ),
               ),
 
-              // --- Nhiet do chinh ---
               Text(
                 '${provider.convertTemp(weather.temperature).round()}°${provider.tempUnit}',
                 style: const TextStyle(
@@ -128,7 +123,6 @@ class CurrentWeatherCard extends StatelessWidget {
                 ),
               ),
 
-              // --- Mo ta thoi tiet ---
               Text(
                 weather.description.toUpperCase(),
                 style: const TextStyle(
@@ -139,14 +133,12 @@ class CurrentWeatherCard extends StatelessWidget {
               ),
               const SizedBox(height: 8),
 
-              // --- Cam giac nhu ---
               Text(
                 'Cảm giác như: ${provider.convertTemp(weather.feelsLike).round()}°${provider.tempUnit}',
                 style: const TextStyle(color: Colors.white70, fontSize: 14),
               ),
               const SizedBox(height: 6),
 
-              // --- Min / Max ---
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

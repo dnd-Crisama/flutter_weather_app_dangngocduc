@@ -22,13 +22,11 @@ class WeatherProvider extends ChangeNotifier {
   WeatherState state = WeatherState.initial;
   String errorMessage = '';
 
-  // Cac setting
   bool isCelsius = true;
   String windUnit = AppConstants.windMs;
   bool is24Hour = true;
   bool isDarkMode = false;
 
-  // Them tinh nang
   bool isShowingCache = false;
   DateTime? lastUpdateTime;
   List<String> searchHistory = [];
@@ -46,7 +44,6 @@ class WeatherProvider extends ChangeNotifier {
     _loadSettings();
   }
 
-  // Tai settings va lich su da luu
   Future<void> _loadSettings() async {
     isCelsius = await _storageService.loadIsCelsius();
     windUnit = await _storageService.loadWindUnit();
@@ -57,7 +54,6 @@ class WeatherProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Lay thoi tiet theo GPS
   Future<void> fetchByLocation() async {
     state = WeatherState.loading;
     isShowingCache = false;
@@ -97,7 +93,6 @@ class WeatherProvider extends ChangeNotifier {
       state = WeatherState.loaded;
       errorMessage = '';
     } catch (e) {
-      // Neu loi, thu load cache
       final loaded = await _tryLoadCache();
       if (!loaded) {
         state = WeatherState.error;
@@ -108,7 +103,6 @@ class WeatherProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Lay thoi tiet theo ten thanh pho
   Future<void> fetchByCity(String city) async {
     state = WeatherState.loading;
     isShowingCache = false;
@@ -149,7 +143,6 @@ class WeatherProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Thu tai cache khi mat mang hoac loi
   Future<bool> _tryLoadCache({bool isOffline = false}) async {
     final cached = await _storageService.loadCachedWeather();
     if (cached != null) {
@@ -166,7 +159,6 @@ class WeatherProvider extends ChangeNotifier {
     return false;
   }
 
-  // Lam moi du lieu
   Future<void> refresh() async {
     if (currentWeather != null) {
       await fetchByCity(currentWeather!.cityName);
@@ -175,7 +167,6 @@ class WeatherProvider extends ChangeNotifier {
     }
   }
 
-  // --- Du bao theo ngay (lay muc gan 12h trua nhat trong ngay) ---
   List<ForecastModel> get dailyForecast {
     final Map<String, ForecastModel> daily = {};
     for (final item in forecast) {
@@ -192,7 +183,6 @@ class WeatherProvider extends ChangeNotifier {
     return daily.values.toList();
   }
 
-  // --- Chuyen doi nhiet do ---
   double convertTemp(double celsius) {
     if (isCelsius) return celsius;
     return (celsius * 9 / 5) + 32;
@@ -200,7 +190,6 @@ class WeatherProvider extends ChangeNotifier {
 
   String get tempUnit => isCelsius ? 'C' : 'F';
 
-  // --- Chuyen doi toc do gio ---
   String convertWind(double ms) {
     switch (windUnit) {
       case AppConstants.windKmh:
@@ -212,28 +201,24 @@ class WeatherProvider extends ChangeNotifier {
     }
   }
 
-  // --- Doi don vi nhiet do ---
   void toggleTempUnit() {
     isCelsius = !isCelsius;
     _storageService.saveIsCelsius(isCelsius);
     notifyListeners();
   }
 
-  // --- Doi don vi gio ---
   void setWindUnit(String unit) {
     windUnit = unit;
     _storageService.saveWindUnit(unit);
     notifyListeners();
   }
 
-  // --- Doi dinh dang gio ---
   void toggleTimeFormat() {
     is24Hour = !is24Hour;
     _storageService.saveIs24Hour(is24Hour);
     notifyListeners();
   }
 
-  // --- Lich su tim kiem ---
   void _addToHistory(String city) {
     searchHistory.remove(city);
     searchHistory.insert(0, city);
@@ -249,7 +234,6 @@ class WeatherProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // --- Yeu thich (toi da 5 thanh pho) ---
   void toggleFavorite(String city) {
     if (favorites.contains(city)) {
       favorites.remove(city);
@@ -263,7 +247,6 @@ class WeatherProvider extends ChangeNotifier {
 
   bool isFavorite(String city) => favorites.contains(city);
 
-  // --- Dark Mode ---
   void toggleDarkMode() {
     isDarkMode = !isDarkMode;
     _storageService.saveDarkMode(isDarkMode);

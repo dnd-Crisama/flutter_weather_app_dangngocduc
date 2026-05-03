@@ -14,10 +14,8 @@ import 'screens/home_screen.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Load bien moi truong tu .env
   await dotenv.load(fileName: '.env');
 
-  // Initialize locale data for date formatting
   await initializeDateFormatting('vi');
 
   runApp(const MyApp());
@@ -30,13 +28,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        // ThemeProvider: quan ly truong sang/toi
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
-        // LocationProvider: quan ly quyen va vi tri GPS
         ChangeNotifierProvider(
           create: (_) => LocationProvider(locationService: LocationService()),
         ),
-        // WeatherProvider: quan ly toan bo state thoi tiet
         ChangeNotifierProvider(
           create: (_) => WeatherProvider(
             weatherService: WeatherService(),

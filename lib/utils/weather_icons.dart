@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class WeatherIcons {
-  /// Get icon based on weather condition and time of day
   static IconData getIcon(String condition, {bool isNight = false}) {
     final normalizedCondition = condition.toLowerCase();
 
@@ -11,21 +10,20 @@ class WeatherIcons {
     return _getDayIcon(normalizedCondition);
   }
 
-  /// Day-specific icons for each weather condition
   static IconData _getDayIcon(String condition) {
     switch (condition) {
       case 'clear':
-        return Icons.wb_sunny; // ☀️ Sunny
+        return Icons.wb_sunny;
       case 'clouds':
-        return Icons.wb_cloudy; // ☁️ Cloudy
+        return Icons.wb_cloudy;
       case 'rain':
-        return Icons.cloud_download; // 🌧️ Rainy
+        return Icons.cloud_download;
       case 'drizzle':
-        return Icons.grain; // 🌦️ Drizzle
+        return Icons.grain;
       case 'thunderstorm':
-        return Icons.flash_on; // ⛈️ Thunderstorm
+        return Icons.flash_on;
       case 'snow':
-        return Icons.ac_unit; // ❄️ Snow
+        return Icons.ac_unit;
       case 'mist':
       case 'smoke':
       case 'haze':
@@ -35,27 +33,26 @@ class WeatherIcons {
       case 'ash':
       case 'tornado':
       case 'squall':
-        return Icons.foggy; // 🌫️ Fog/Mist
+        return Icons.foggy;
       default:
         return Icons.wb_cloudy;
     }
   }
 
-  /// Night-specific icons for each weather condition
   static IconData _getNightIcon(String condition) {
     switch (condition) {
       case 'clear':
-        return Icons.nights_stay; // 🌙 Clear night
+        return Icons.nights_stay;
       case 'clouds':
-        return Icons.cloud_queue; // ☁️ Cloudy night
+        return Icons.cloud_queue;
       case 'rain':
-        return Icons.cloud_download; // 🌧️ Rainy night
+        return Icons.cloud_download;
       case 'drizzle':
-        return Icons.grain; // 🌦️ Drizzle night
+        return Icons.grain;
       case 'thunderstorm':
-        return Icons.flash_on; // ⛈️ Thunderstorm night
+        return Icons.flash_on;
       case 'snow':
-        return Icons.ac_unit; // ❄️ Snow night
+        return Icons.ac_unit;
       case 'mist':
       case 'smoke':
       case 'haze':
@@ -65,13 +62,12 @@ class WeatherIcons {
       case 'ash':
       case 'tornado':
       case 'squall':
-        return Icons.foggy; // 🌫️ Fog night
+        return Icons.foggy;
       default:
         return Icons.wb_cloudy;
     }
   }
 
-  /// Check if it's night time based on sunrise/sunset
   static bool isNightTime({
     required int sunrise,
     required int sunset,
@@ -84,7 +80,6 @@ class WeatherIcons {
     return currentTime.isBefore(sunriseTime) || currentTime.isAfter(sunsetTime);
   }
 
-  /// Enhanced gradients with day/night variants
   static List<Color> getGradient(String condition, {bool isNight = false}) {
     final normalizedCondition = condition.toLowerCase();
 
@@ -94,39 +89,33 @@ class WeatherIcons {
     return _getDayGradient(normalizedCondition);
   }
 
-  /// Day gradients for each weather condition
   static List<Color> _getDayGradient(String condition) {
     switch (condition) {
       case 'clear':
-        // Sunny day - warm orange to blue
         return [
-          const Color.fromARGB(255, 255, 179, 71), // Orange
-          const Color.fromARGB(255, 66, 165, 245), // Blue
+          const Color.fromARGB(255, 255, 179, 71),
+          const Color.fromARGB(255, 66, 165, 245),
         ];
       case 'clouds':
-        // Cloudy - gray to light gray
         return [
-          const Color.fromARGB(255, 176, 190, 197), // Gray blue
-          const Color.fromARGB(255, 207, 216, 220), // Light gray
+          const Color.fromARGB(255, 176, 190, 197),
+          const Color.fromARGB(255, 207, 216, 220),
         ];
       case 'rain':
       case 'drizzle':
-        // Rainy - dark blue to steel blue
         return [
-          const Color.fromARGB(255, 57, 73, 171), // Dark blue
-          const Color.fromARGB(255, 33, 150, 243), // Medium blue
+          const Color.fromARGB(255, 57, 73, 171),
+          const Color.fromARGB(255, 33, 150, 243),
         ];
       case 'thunderstorm':
-        // Thunderstorm - very dark to dark gray
         return [
-          const Color.fromARGB(255, 33, 33, 33), // Very dark
-          const Color.fromARGB(255, 66, 66, 66), // Dark gray
+          const Color.fromARGB(255, 33, 33, 33),
+          const Color.fromARGB(255, 66, 66, 66),
         ];
       case 'snow':
-        // Snow - light gray to snow white
         return [
-          const Color.fromARGB(255, 176, 190, 197), // Gray
-          const Color.fromARGB(255, 207, 216, 220), // Light gray/white
+          const Color.fromARGB(255, 176, 190, 197),
+          const Color.fromARGB(255, 207, 216, 220),
         ];
       case 'mist':
       case 'fog':
@@ -137,53 +126,45 @@ class WeatherIcons {
       case 'ash':
       case 'tornado':
       case 'squall':
-        // Fog - muted gray
         return [
-          const Color.fromARGB(255, 144, 164, 174), // Muted gray
-          const Color.fromARGB(255, 176, 190, 197), // Light gray
+          const Color.fromARGB(255, 144, 164, 174),
+          const Color.fromARGB(255, 176, 190, 197),
         ];
       default:
-        // Default - blue gradient
         return [
-          const Color.fromARGB(255, 21, 101, 192), // Deep blue
-          const Color.fromARGB(255, 66, 165, 245), // Light blue
+          const Color.fromARGB(255, 21, 101, 192),
+          const Color.fromARGB(255, 66, 165, 245),
         ];
     }
   }
 
-  /// Night gradients for each weather condition
   static List<Color> _getNightGradient(String condition) {
     switch (condition) {
       case 'clear':
-        // Clear night - dark blue to navy
         return [
-          const Color.fromARGB(255, 13, 71, 161), // Deep blue
-          const Color.fromARGB(255, 25, 103, 210), // Navy blue
+          const Color.fromARGB(255, 13, 71, 161),
+          const Color.fromARGB(255, 25, 103, 210),
         ];
       case 'clouds':
-        // Cloudy night - dark gray
         return [
-          const Color.fromARGB(255, 33, 33, 33), // Dark
-          const Color.fromARGB(255, 66, 66, 66), // Gray
+          const Color.fromARGB(255, 33, 33, 33),
+          const Color.fromARGB(255, 66, 66, 66),
         ];
       case 'rain':
       case 'drizzle':
-        // Rainy night - very dark blue
         return [
-          const Color.fromARGB(255, 13, 27, 42), // Very dark blue
-          const Color.fromARGB(255, 33, 67, 102), // Dark blue
+          const Color.fromARGB(255, 13, 27, 42),
+          const Color.fromARGB(255, 33, 67, 102),
         ];
       case 'thunderstorm':
-        // Thunderstorm night - extremely dark
         return [
-          const Color.fromARGB(255, 0, 0, 0), // Black
-          const Color.fromARGB(255, 33, 33, 33), // Very dark gray
+          const Color.fromARGB(255, 0, 0, 0),
+          const Color.fromARGB(255, 33, 33, 33),
         ];
       case 'snow':
-        // Snow night - dark with slight blue tint
         return [
-          const Color.fromARGB(255, 33, 57, 100), // Dark blue gray
-          const Color.fromARGB(255, 66, 90, 130), // Lighter blue gray
+          const Color.fromARGB(255, 33, 57, 100),
+          const Color.fromARGB(255, 66, 90, 130),
         ];
       case 'mist':
       case 'fog':
@@ -194,21 +175,18 @@ class WeatherIcons {
       case 'ash':
       case 'tornado':
       case 'squall':
-        // Fog night - dark muted
         return [
-          const Color.fromARGB(255, 33, 33, 33), // Dark
-          const Color.fromARGB(255, 66, 66, 66), // Gray
+          const Color.fromARGB(255, 33, 33, 33),
+          const Color.fromARGB(255, 66, 66, 66),
         ];
       default:
-        // Default night - midnight blue
         return [
-          const Color.fromARGB(255, 0, 51, 102), // Midnight blue
-          const Color.fromARGB(255, 13, 71, 161), // Navy
+          const Color.fromARGB(255, 0, 51, 102),
+          const Color.fromARGB(255, 13, 71, 161),
         ];
     }
   }
 
-  /// Get wind direction in Vietnamese
   static String windDirection(int deg) {
     if (deg >= 337 || deg < 23) return 'Bắc';
     if (deg < 68) return 'Đông Bắc';
@@ -220,7 +198,6 @@ class WeatherIcons {
     return 'Tây Bắc';
   }
 
-  /// Get weather description emoji/icon
   static String getWeatherEmoji(String condition) {
     switch (condition.toLowerCase()) {
       case 'clear':

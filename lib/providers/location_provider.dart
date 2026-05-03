@@ -14,7 +14,6 @@ class LocationProvider extends ChangeNotifier {
   LocationProvider({required LocationService locationService})
     : _locationService = locationService;
 
-  // Lay vi tri hien tai
   Future<void> fetchLocation() async {
     status = LocationStatus.loading;
     notifyListeners();

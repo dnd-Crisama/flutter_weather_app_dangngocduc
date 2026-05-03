@@ -25,7 +25,6 @@ class HourlyForecastList extends StatelessWidget {
         separatorBuilder: (_, __) => const SizedBox(width: 8),
         itemBuilder: (context, index) {
           final item = hourlyList[index];
-          // Estimate night time: roughly between 18:00 and 06:00
           final isNight = item.dateTime.hour >= 18 || item.dateTime.hour < 6;
           return Container(
             width: 72,
@@ -38,7 +37,6 @@ class HourlyForecastList extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                // Gio
                 Text(
                   DateFormatter.formatHour(
                     item.dateTime,
@@ -49,13 +47,11 @@ class HourlyForecastList extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                // Icon
                 Icon(
                   WeatherIcons.getIcon(item.description, isNight: isNight),
                   size: 28,
                   color: Colors.blue.shade700,
                 ),
-                // Nhiet do
                 Text(
                   '${provider.convertTemp(item.temperature).round()}°${provider.tempUnit}',
                   style: const TextStyle(
@@ -63,7 +59,6 @@ class HourlyForecastList extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                // Xac suat mua
                 if (item.pop > 0)
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

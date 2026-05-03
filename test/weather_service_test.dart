@@ -6,7 +6,6 @@ import 'package:weather_app/models/hourly_weather_model.dart';
 import 'package:weather_app/utils/date_formatter.dart';
 import 'package:weather_app/utils/weather_icons.dart';
 
-// Sample JSON data for testing
 final sampleWeatherJson = {
   'name': 'Ho Chi Minh City',
   'sys': {'country': 'VN', 'sunrise': 1619083200, 'sunset': 1619126400},
@@ -48,7 +47,6 @@ final sampleHourlyJson = {
 
 void main() {
   setUpAll(() async {
-    // Initialize locale data for date formatting tests
     await initializeDateFormatting('vi');
   });
 
@@ -94,8 +92,8 @@ void main() {
 
       final weather = WeatherModel.fromJson(jsonWithMissing);
       expect(weather.cityName, 'Test City');
-      expect(weather.visibility, 0); // Default value
-      expect(weather.cloudiness, 0); // Default value
+      expect(weather.visibility, 0);
+      expect(weather.cloudiness, 0);
     });
 
     test('Convert weather to JSON correctly', () {
@@ -188,7 +186,7 @@ void main() {
     });
 
     test('Format weekday correctly', () {
-      final dt = DateTime(2026, 4, 25); // Saturday
+      final dt = DateTime(2026, 4, 25);
       final formatted = DateFormatter.formatWeekday(dt);
 
       expect(formatted, isNotEmpty);
@@ -216,7 +214,7 @@ void main() {
     });
 
     test('Format Unix timestamp correctly', () {
-      final unix = 1619104800; // Thu Apr 22 2021 16:00:00 GMT
+      final unix = 1619104800;
       final formatted = DateFormatter.fromUnix(unix, is24Hour: true);
 
       expect(formatted, isNotEmpty);
@@ -319,8 +317,6 @@ void main() {
   group('Data Validation Tests', () {
     test('WeatherModel validates temperature range', () {
       final weather = WeatherModel.fromJson(sampleWeatherJson);
-
-      // Typical weather temperature range
       expect(weather.temperature, greaterThan(-50));
       expect(weather.temperature, lessThan(60));
     });

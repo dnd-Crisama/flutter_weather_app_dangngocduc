@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// Hieu ung loading
 class LoadingShimmer extends StatefulWidget {
   const LoadingShimmer({super.key});
 
@@ -29,7 +28,6 @@ class _LoadingShimmerState extends State<LoadingShimmer>
     super.dispose();
   }
 
-  // Tao mot thanh placeholder co mau xam mo dan
   Widget _shimmerBox({double width = double.infinity, double height = 20}) {
     return FadeTransition(
       opacity: _animation,
@@ -50,7 +48,6 @@ class _LoadingShimmerState extends State<LoadingShimmer>
       padding: const EdgeInsets.all(16),
       child: Column(
         children: [
-          // Placeholder header
           Container(
             width: double.infinity,
             height: 280,
@@ -65,7 +62,6 @@ class _LoadingShimmerState extends State<LoadingShimmer>
           ),
           const SizedBox(height: 16),
 
-          // Placeholder chi tiet
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 0),
             child: Column(

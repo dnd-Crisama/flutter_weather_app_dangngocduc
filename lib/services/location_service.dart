@@ -2,7 +2,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 
 class LocationService {
-  // Xin quyen vi tri, tra ve true neu duoc cap
   Future<bool> requestPermission() async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) return false;
@@ -18,7 +17,6 @@ class LocationService {
     return true;
   }
 
-  // Lay toa do hien tai
   Future<Position> getCurrentPosition() async {
     final hasPermission = await requestPermission();
     if (!hasPermission) {
@@ -31,7 +29,6 @@ class LocationService {
     );
   }
 
-  // Lay ten thanh pho tu toa do (reverse geocoding)
   Future<String> getCityFromCoords(double lat, double lon) async {
     try {
       final placemarks = await placemarkFromCoordinates(lat, lon);

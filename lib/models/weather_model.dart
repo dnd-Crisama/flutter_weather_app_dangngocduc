@@ -64,7 +64,6 @@ class WeatherModel {
     );
   }
 
-  // Chuyen sang JSON de luu cache
   Map<String, dynamic> toJson() {
     return {
       'name': cityName,

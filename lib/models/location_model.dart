@@ -1,4 +1,3 @@
-// vi tri dia ly
 class LocationModel {
   final double latitude;
   final double longitude;

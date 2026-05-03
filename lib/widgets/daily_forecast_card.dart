@@ -20,7 +20,6 @@ class DailyForecastCard extends StatelessWidget {
     final isToday =
         forecast.dateTime.day == now.day &&
         forecast.dateTime.month == now.month;
-    // Forecast times are typically 12:00 (noon), so treat as daytime
     final isNight = false;
 
     return Container(
@@ -33,7 +32,6 @@ class DailyForecastCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // Ten ngay
           SizedBox(
             width: 90,
             child: Column(
@@ -58,7 +56,6 @@ class DailyForecastCard extends StatelessWidget {
             ),
           ),
 
-          // Icon
           Icon(
             WeatherIcons.getIcon(forecast.mainCondition, isNight: isNight),
             size: 36,
@@ -66,7 +63,6 @@ class DailyForecastCard extends StatelessWidget {
           ),
           const SizedBox(width: 8),
 
-          // Mo ta + xac suat mua
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,7 +94,6 @@ class DailyForecastCard extends StatelessWidget {
             ),
           ),
 
-          // Min / Max nhiet do
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [

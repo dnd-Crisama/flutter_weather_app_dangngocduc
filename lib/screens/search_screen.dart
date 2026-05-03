@@ -12,7 +12,6 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   final searchController = TextEditingController();
 
-  // Tim kiem va quay lai home
   void _doSearch(String city) {
     if (city.trim().isEmpty) return;
     context.read<WeatherProvider>().fetchByCity(city.trim());
@@ -36,7 +35,6 @@ class _SearchScreenState extends State<SearchScreen> {
       ),
       body: Column(
         children: [
-          // --- O tim kiem ---
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
             child: Row(
@@ -82,7 +80,6 @@ class _SearchScreenState extends State<SearchScreen> {
             child: ListView(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               children: [
-                // --- Thanh pho yeu thich ---
                 if (provider.favorites.isNotEmpty) ...[
                   const SizedBox(height: 8),
                   Row(
@@ -120,7 +117,6 @@ class _SearchScreenState extends State<SearchScreen> {
                   const Divider(height: 28),
                 ],
 
-                // --- Lich su tim kiem ---
                 if (provider.searchHistory.isNotEmpty) ...[
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

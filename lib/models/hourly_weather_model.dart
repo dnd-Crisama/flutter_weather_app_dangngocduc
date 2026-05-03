@@ -1,10 +1,9 @@
-// Model hien thi du bao theo gio
 class HourlyWeatherModel {
   final DateTime dateTime;
   final double temperature;
   final String icon;
   final String description;
-  final double pop; // xac suat mua
+  final double pop;
 
   HourlyWeatherModel({
     required this.dateTime,

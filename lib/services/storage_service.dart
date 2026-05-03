@@ -3,7 +3,6 @@ import '../utils/constants.dart';
 import '../models/weather_model.dart';
 
 class StorageService {
-  // Luu cache thoi tiet
   Future<void> saveWeather(WeatherModel weather) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(
@@ -16,7 +15,6 @@ class StorageService {
     );
   }
 
-  // Doc thoi tiet tu cache
   Future<WeatherModel?> loadCachedWeather() async {
     final prefs = await SharedPreferences.getInstance();
     final data = prefs.getString(AppConstants.cachedWeatherKey);
@@ -28,7 +26,6 @@ class StorageService {
     }
   }
 
-  // Cache con hieu luc khong (< 30 phut)
   Future<bool> isCacheValid() async {
     final prefs = await SharedPreferences.getInstance();
     final lastUpdate = prefs.getInt(AppConstants.lastUpdateKey);
@@ -37,7 +34,6 @@ class StorageService {
     return diff < AppConstants.cacheValidMinutes * 60 * 1000;
   }
 
-  // Lay thoi gian cap nhat cuoi cung
   Future<DateTime?> getLastUpdateTime() async {
     final prefs = await SharedPreferences.getInstance();
     final ts = prefs.getInt(AppConstants.lastUpdateKey);
@@ -45,7 +41,6 @@ class StorageService {
     return DateTime.fromMillisecondsSinceEpoch(ts);
   }
 
-  // --- Settings ---
   Future<void> saveIsCelsius(bool value) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool(AppConstants.isCelsiusKey, value);
@@ -76,7 +71,6 @@ class StorageService {
     return prefs.getBool(AppConstants.is24HourKey) ?? true;
   }
 
-  // --- Lich su tim kiem ---
   Future<void> saveSearchHistory(List<String> history) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setStringList(AppConstants.searchHistoryKey, history);
@@ -87,7 +81,6 @@ class StorageService {
     return prefs.getStringList(AppConstants.searchHistoryKey) ?? [];
   }
 
-  // --- Thanh pho yeu thich ---
   Future<void> saveFavorites(List<String> favorites) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setStringList(AppConstants.favoritesKey, favorites);
@@ -98,7 +91,6 @@ class StorageService {
     return prefs.getStringList(AppConstants.favoritesKey) ?? [];
   }
 
-  // --- Dark Mode ---
   Future<void> saveDarkMode(bool value) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool(AppConstants.isDarkModeKey, value);
