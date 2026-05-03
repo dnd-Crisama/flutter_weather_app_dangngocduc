@@ -12,9 +12,12 @@
 - Kiểm tra kết nối mạng và lưu bộ đệm dữ liệu
 
 ## Video demo 
-https://youtu.be/TglhF3O7jbk <br>
 https://github.com/user-attachments/assets/2ecab300-4208-4d4a-95f4-f58062be88b9
 
+<br>
+link youtube: https://youtu.be/TglhF3O7jbk
+<br>
+<br>
 ## Công nghệ sử dụng
 
 - Framework: Flutter 3.41.6
